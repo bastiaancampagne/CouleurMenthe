@@ -4,5 +4,5 @@
 //
 // Exemple : 1234567890-abcxyz.apps.googleusercontent.com
 window.COUL_MENTHE_CONFIG = {
-  GOOGLE_CLIENT_ID: "REMPLACEZ_PAR_VOTRE_CLIENT_ID_WEB.apps.googleusercontent.com"
+  GOOGLE_CLIENT_ID: "112001201855-rl61a4mk012fe0hfmtdp52v04l4rco0p.apps.googleusercontent.com"
 };
