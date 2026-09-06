@@ -1,0 +1,14 @@
+Couleur Menthe PWA v1
+
+- Conversion du projet Android v6 en PWA.
+- Interface immersive avec émeus en arrière-plan plein écran.
+- Cartes, boutons et panneaux translucides au premier plan.
+- Barre de navigation fixe en bas :
+  Accueil | Courriels | Agenda | Favoris | Paramètres.
+- Favoris = courriels étoilés Gmail.
+- Lecture Gmail + Agenda via Google APIs et OAuth Web.
+- Même règle de filtrage Gmail que le projet Android.
+- Même fenêtre Agenda : aujourd’hui + 3 jours.
+- Ouverture des liens Gmail et Google Agenda.
+- Icône Couleur Menthe fournie par l’utilisateur.
+- Maquette de référence incluse.

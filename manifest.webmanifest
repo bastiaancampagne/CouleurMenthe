@@ -1,0 +1,23 @@
+{
+  "name": "Couleur Menthe",
+  "short_name": "CouleurMenthe",
+  "description": "Vos courriels importants et vos événements Google Agenda, simplement.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#123d35",
+  "theme_color": "#0f7f65",
+  "lang": "fr-FR",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

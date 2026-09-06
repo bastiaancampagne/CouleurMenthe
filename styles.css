@@ -1,0 +1,103 @@
+:root{
+ --ink:#143933;--green:#0d7a60;--green2:#1aa47f;--mint:#dff4ec;
+ --cream:#fffaf0;--pink:#f8577b;--blue:#2175c7;--gold:#f3b633;
+ --glass:rgba(255,255,255,.86);--glass2:rgba(255,255,255,.74);
+ --line:rgba(255,255,255,.48);--shadow:0 16px 42px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink)}
+body{min-height:100vh;background:#173e36}
+body::before{
+ content:"";position:fixed;inset:0;z-index:-2;background-size:cover;background-position:center;
+ background-repeat:no-repeat;filter:saturate(1.05);transform:scale(1.035)
+}
+body::after{
+ content:"";position:fixed;inset:0;z-index:-1;
+ background:linear-gradient(180deg,rgba(8,60,51,.18),rgba(20,36,31,.38));pointer-events:none
+}
+body[data-scene="signin"]::before,body[data-scene="home"]::before{background-image:url("assets/emu_pyjama.png")}
+body[data-scene="mail"]::before{background-image:url("assets/emu_messages.png")}
+body[data-scene="calendar"]::before{background-image:url("assets/emu_agenda.png")}
+body[data-scene="favorites"]::before{background-image:url("assets/emu_mail_detail.png")}
+body[data-scene="settings"]::before{background-image:url("assets/emu_settings.png")}
+
+button,input{font:inherit}.hidden{display:none!important}
+.app{
+ max-width:820px;margin:0 auto;min-height:100vh;
+ padding:calc(env(safe-area-inset-top) + 14px) 12px calc(128px + env(safe-area-inset-bottom))
+}
+.topbar{
+ position:sticky;top:8px;z-index:12;display:flex;align-items:center;gap:10px;
+ padding:10px 13px;margin-bottom:12px;color:#fff;background:rgba(8,88,72,.82);
+ border:1px solid rgba(255,255,255,.24);border-radius:22px;backdrop-filter:blur(15px);
+ box-shadow:var(--shadow)
+}
+.topbar h1{font-size:clamp(22px,5vw,28px);margin:0;flex:1;text-align:center}
+.topbar button{border:1px solid #ffffff55;background:#ffffff20;color:white;border-radius:14px;padding:8px 10px;font-weight:800}
+.hero-card,.panel,.message-card,.event-card,.settings-card{
+ background:var(--glass);border:1px solid var(--line);border-radius:24px;
+ box-shadow:var(--shadow);backdrop-filter:blur(16px)
+}
+.hero-card{margin-top:min(12vh,95px);padding:22px;text-align:center}
+.hero-card h1{font-size:clamp(38px,8vw,56px);margin:0;color:#075c4a;text-shadow:0 2px 0 #fff9}
+.hero-card p{font-size:17px;line-height:1.45}
+.hero-note{margin:12px auto 0;max-width:540px;padding:10px 13px;border-radius:16px;background:#fff1bfdd;font-weight:800}
+.panel{padding:16px;margin:11px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.tile{
+ border:1px solid rgba(255,255,255,.65);border-radius:20px;padding:18px 12px;
+ font-size:17px;font-weight:900;box-shadow:0 8px 22px #0002;cursor:pointer
+}
+.tile span{display:block;font-size:28px;margin-bottom:5px}
+.tile.mail{background:rgba(206,244,242,.93)}.tile.calendar{background:rgba(255,212,225,.93)}
+.tile.fav{background:rgba(255,239,187,.94)}.tile.settings{background:rgba(224,236,250,.94)}
+.primary,.secondary,.danger{
+ border:0;border-radius:15px;padding:12px 15px;font-weight:850;cursor:pointer
+}
+.primary{background:linear-gradient(135deg,var(--green),var(--green2));color:white}
+.secondary{background:#eef6f3;color:var(--ink)}.danger{background:#b92d38;color:white}
+.row{display:flex;gap:8px;flex-wrap:wrap}.row>*{flex:1}
+.status{font-size:13px;color:#4e6862}.muted{color:#5d716c;font-size:13px}
+.message-card,.event-card{padding:14px;margin:9px 0;cursor:pointer}
+.message-card:hover,.event-card:hover{transform:translateY(-1px)}
+.sender{font-weight:950}.subject{font-size:17px;font-weight:800;margin:3px 0}.snippet{color:#435a55;line-height:1.4}
+.meta{font-size:12px;color:#687c77}.star{float:right;color:#e8a900;font-size:22px}
+.filters{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0}
+.chip{border:1px solid #c7ddd6;background:#f5fbf8;border-radius:999px;padding:7px 11px;font-weight:750;cursor:pointer}
+.chip.active{background:#0e8668;color:white;border-color:#0e8668}
+.day-title{font-weight:950;font-size:18px;margin:18px 0 5px;padding:7px 11px;border-radius:13px;background:rgba(255,255,255,.83);display:inline-block}
+.settings-card{padding:17px;margin:10px 0}.settings-card h3{margin:0 0 8px}
+.oauth-warning{background:#fff1c8;border:1px solid #e1b94a;border-radius:18px;padding:13px;margin:12px 0;line-height:1.45}
+.loading{padding:30px;text-align:center;background:var(--glass);border-radius:20px;box-shadow:var(--shadow)}
+.spinner{width:34px;height:34px;border:4px solid #d9ece6;border-top-color:#0d7a60;border-radius:50%;margin:0 auto 10px;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.empty{padding:22px;text-align:center;background:var(--glass);border-radius:20px;box-shadow:var(--shadow)}
+.bottom-nav{
+ position:fixed;left:50%;transform:translateX(-50%);bottom:28px;z-index:40;
+ width:min(820px,100%);display:grid;grid-template-columns:repeat(5,1fr);gap:4px;
+ padding:7px 8px;background:rgba(8,75,62,.91);border-top:1px solid rgba(255,255,255,.28);
+ border-radius:19px 19px 0 0;backdrop-filter:blur(15px);box-shadow:0 -8px 28px #0004
+}
+.bottom-nav button{
+ min-width:0;border:0;border-radius:13px;background:transparent;color:#ecfff8;
+ padding:7px 2px 6px;font-weight:800;display:flex;flex-direction:column;align-items:center;gap:2px
+}
+.bottom-nav button span{font-size:20px;line-height:1}.bottom-nav button small{font-size:10px;white-space:nowrap}
+.bottom-nav button.active{background:rgba(255,255,255,.20);color:white;box-shadow:inset 0 0 0 1px #ffffff3a}
+.app-signature{
+ position:fixed;left:0;right:0;bottom:0;z-index:41;height:28px;text-align:center;
+ font-size:11px;font-weight:800;color:#eafff6;background:rgba(7,53,45,.89);
+ border-top:1px solid #ffffff35;padding:6px 10px calc(6px + env(safe-area-inset-bottom));
+ backdrop-filter:blur(13px)
+}
+.toast{
+ position:fixed;left:50%;bottom:112px;transform:translateX(-50%) translateY(20px);opacity:0;
+ z-index:60;background:#173f36;color:white;padding:10px 14px;border-radius:14px;transition:.2s;
+ box-shadow:var(--shadow);pointer-events:none;max-width:90%;text-align:center
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:520px){
+ .app{padding-left:9px;padding-right:9px}.topbar{top:5px}.bottom-nav button small{font-size:9px}
+ .grid2{grid-template-columns:1fr 1fr}
+}
+@media(min-width:760px){.hero-card{margin-top:90px}.message-card,.event-card{padding:17px}}

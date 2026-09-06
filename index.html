@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0f7f65">
+  <meta name="description" content="Couleur Menthe — vos courriels Gmail importants et vos événements Google Agenda, simplement.">
+  <title>Couleur Menthe</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon-192.png">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <script src="config.js?v=1"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body data-scene="signin">
+  <main id="app" class="app"></main>
+
+  <nav id="bottomNav" class="bottom-nav hidden" aria-label="Navigation principale">
+    <button data-page="home" aria-label="Accueil"><span>🏠</span><small>Accueil</small></button>
+    <button data-page="mail" aria-label="Courriels"><span>💬</span><small>Courriels</small></button>
+    <button data-page="calendar" aria-label="Agenda"><span>📅</span><small>Agenda</small></button>
+    <button data-page="favorites" aria-label="Favoris"><span>⭐</span><small>Favoris</small></button>
+    <button data-page="settings" aria-label="Paramètres"><span>⚙️</span><small>Paramètres</small></button>
+  </nav>
+
+  <footer class="app-signature">Bastiaan (31) TM</footer>
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js?v=1"></script>
+</body>
+</html>
